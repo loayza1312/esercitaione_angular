@@ -1,0 +1,12 @@
+<header class="header">
+  <h1>{{ title }}</h1>
+  <nav>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+    <a routerLink="/search" routerLinkActive="active">Cerca</a>
+    <a routerLink="/favorites" routerLinkActive="active">Preferiti</a>
+  </nav>
+</header>
+
+<main class="container">
+  <router-outlet></router-outlet>
+</main>

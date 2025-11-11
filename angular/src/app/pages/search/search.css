@@ -1,0 +1,9 @@
+.search-form{display:flex;gap:.6rem;margin-top:.6rem}
+.row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.65rem .8rem;border:1px solid #e6eaf2;border-radius:12px;margin-top:.6rem;background:#fff;
+  transition: box-shadow .15s, transform .05s;
+}
+.row:hover{box-shadow:var(--shadow); transform: translateY(-1px)}
+.muted{color:var(--muted)}
+.error{color:#a40000;margin-top:.6rem}

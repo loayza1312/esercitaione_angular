@@ -1,0 +1,24 @@
+<div class="card">
+  <h2>🔎 Cerca città</h2>
+
+  <form (ngSubmit)="search()" class="search-form">
+    <input class="input" [(ngModel)]="query" name="query" placeholder="Es. Milano, Roma, London" required />
+    <button class="btn" type="submit">Cerca</button>
+  </form>
+
+  <div *ngIf="loading" class="row skeleton" style="height:40px;border-radius:12px;margin-top:.8rem;"></div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <ul *ngIf="results.length" class="list results">
+    <li *ngFor="let c of results" class="row">
+      <a [routerLink]="['/city', c.lat + ',' + c.lon]" [state]="{ city: c }">
+        <strong>{{ c.name }}</strong>
+        <span class="muted" *ngIf="c.admin1"> ({{ c.admin1 }})</span>
+        <span class="muted"> — {{ c.country }}</span>
+      </a>
+      <span class="badge mono">{{ c.lat.toFixed(2) }}, {{ c.lon.toFixed(2) }}</span>
+    </li>
+  </ul>
+
+  <p *ngIf="!loading && !results.length && tried" class="muted">Nessun risultato. Prova un altro nome.</p>
+</div>

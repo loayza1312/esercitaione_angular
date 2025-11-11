@@ -1,0 +1,50 @@
+<section class="card" *ngIf="loaded; else loadingTpl">
+  <header class="city-head">
+    <div>
+      <h2 class="city">{{ name }}</h2>
+      <div class="coords mono muted">{{ coords }}</div>
+    </div>
+    <button class="btn" (click)="toggleFav()">{{ isFavorite ? '★ Rimuovi' : '☆ Aggiungi' }}</button>
+  </header>
+
+  <div class="hero" *ngIf="data?.current">
+    <div class="icon">{{ iconFor(data.current.weather_code) }}</div>
+    <div class="temp">{{ data.current.temperature_2m | number:'1.0-0' }}°C</div>
+    <div class="desc">{{ labelFor(data.current.weather_code) }}</div>
+    <div class="meta">Vento {{ data.current.wind_speed_10m }} km/h</div>
+  </div>
+
+  <div class="segment" *ngIf="data?.hourly">
+    <h3>Prossime 24 ore</h3>
+    <div class="scroll-x">
+      <div class="hour" *ngFor="let t of data.hourly.time | slice:0:24; let i = index">
+        <div class="t">{{ data.hourly.time[i] | date:'HH:mm' }}</div>
+        <div class="v mono">{{ data.hourly.temperature_2m[i] }}°</div>
+        <div class="p">💧 {{ data.hourly.precipitation_probability?.[i] ?? 0 }}%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="segment" *ngIf="data?.daily">
+    <h3>7 giorni</h3>
+    <table class="days">
+      <thead><tr><th>Giorno</th><th>Min</th><th>Max</th><th>Pioggia%</th><th>Alba</th><th>Tramonto</th></tr></thead>
+      <tbody>
+        <tr *ngFor="let d of data.daily.time; let i = index">
+          <td>{{ data.daily.time[i] | date:'EEE d MMM' }}</td>
+          <td class="mono">{{ data.daily.temperature_2m_min[i] }}°</td>
+          <td class="mono">{{ data.daily.temperature_2m_max[i] }}°</td>
+          <td class="mono">{{ data.daily.precipitation_probability_max?.[i] ?? 0 }}%</td>
+          <td class="mono">{{ data.daily.sunrise[i] | date:'HH:mm' }}</td>
+          <td class="mono">{{ data.daily.sunset[i] | date:'HH:mm' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+</section>
+
+<ng-template #loadingTpl>
+  <div class="card" style="height:140px;border-radius:18px" class="skeleton"></div>
+</ng-template>

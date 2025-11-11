@@ -1,0 +1,15 @@
+.header{
+  position:sticky;top:0;z-index:10;
+  background:linear-gradient(90deg,#0a4c8a,#0d63b6);
+  color:#fff;padding:1rem 1.5rem;
+  display:flex;justify-content:space-between;align-items:center;
+  box-shadow:0 6px 20px rgba(0,0,0,.12);
+}
+.header h1{margin:0;font-size:1.4rem;letter-spacing:.3px}
+nav a{
+  color:#e3efff;margin:0 .75rem;text-decoration:none;position:relative;
+}
+nav a.active{color:#fff}
+nav a.active::after{
+  content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;background:#fff;border-radius:2px;
+}

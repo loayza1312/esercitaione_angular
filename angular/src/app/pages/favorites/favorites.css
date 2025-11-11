@@ -1,0 +1,8 @@
+.card{padding:1rem}
+.fav-item{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:.8rem; border:1px solid #e6eaf2; background:#fff; border-radius:12px;
+  padding:.6rem .8rem; margin-top:.6rem; transition: box-shadow .15s, transform .05s;
+}
+.fav-item:hover{box-shadow:var(--shadow); transform:translateY(-1px)}
+.remove{background:transparent;border:none;font-size:1.1rem;cursor:pointer}

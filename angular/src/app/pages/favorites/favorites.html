@@ -1,0 +1,11 @@
+<section class="card">
+  <h2>Preferiti</h2>
+  <p *ngIf="!favorites.length">Nessuna città salvata. Aggiungine una dal dettaglio città.</p>
+  <ul *ngIf="favorites.length" class="list">
+    <li *ngFor="let c of favorites" class="fav-item">
+      <a [routerLink]="['/city', c.id]">{{ c.name }} <span *ngIf="c.country">— {{ c.country }}</span></a>
+      <button class="remove" (click)="remove(c.id)" title="Rimuovi">🗑️</button>
+    </li>
+  </ul>
+</section>
+

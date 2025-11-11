@@ -1,0 +1,56 @@
+/* === Theme === */
+:root{
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --text:#0a2540;
+  --muted:#5c6b83;
+  --brand:#0a4c8a;
+  --brand-2:#0d63b6;
+  --ring: rgba(13, 99, 182, .35);
+  --shadow: 0 10px 25px rgba(0,0,0,.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial;
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.container{padding:1.2rem;max-width:1100px;margin:0 auto}
+
+.card{
+  background:var(--card);
+  border-radius:18px;
+  padding:1.2rem;
+  box-shadow:var(--shadow);
+}
+
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--brand);
+  color:#fff;border:none;border-radius:12px;
+  padding:.6rem 1rem; cursor:pointer;
+  transition: transform .06s ease, background .2s ease;
+  text-decoration:none;
+}
+.btn:hover{background:var(--brand-2)}
+.btn:active{transform:translateY(1px)}
+.btn.secondary{background:#0074e0}
+.input{
+  width:100%;border:1px solid #d9dfeb;border-radius:12px;padding:.6rem .8rem;
+  background:#fff;outline:none;transition: box-shadow .2s,border .2s;
+}
+.input:focus{border-color:var(--brand-2); box-shadow:0 0 0 3px var(--ring)}
+.list{list-style:none;margin:0;padding:0}
+
+.badge{font-size:.8rem;color:#fff;background:#1d7bd8;border-radius:999px;padding:.2rem .55rem}
+.mono{font-variant-numeric:tabular-nums}
+.skeleton{background:linear-gradient(90deg,#eef2f7, #f8fafc, #eef2f7);background-size:200% 100%;animation:sk 1.2s infinite}
+@keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}

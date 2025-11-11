@@ -1,0 +1,5 @@
+.card{margin-top:2rem;text-align:center;padding:2rem}
+h2{margin-top:0}
+.highlight{color:#0a4c8a}
+.actions{margin-top:1.2rem;display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap}
+.btn.secondary{background:#0d63b6}
